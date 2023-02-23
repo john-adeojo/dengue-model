@@ -198,8 +198,8 @@ with Ridge_tab:
         week_start_date_sj = df["week_start_date"].loc[df.city == "sj"]
 
 
-        chart1 = plot_time_series(y=y_iq, y_hat=y_hat_iq, week_start_date=week_start_date_iq, title="Iq actuals vs model")
-        chart2 = plot_time_series(y=y_sj, y_hat=y_hat_sj, week_start_date=week_start_date_sj, title="Sj actuals vs model")
+        chart1 = plot_time_series(y=y_iq, y_hat=y_hat_iq, week_start_date=week_start_date_iq, title="Iquitos actuals vs model")
+        chart2 = plot_time_series(y=y_sj, y_hat=y_hat_sj, week_start_date=week_start_date_sj, title="San Juan actuals vs model")
         
         st.plotly_chart(chart1)
         st.plotly_chart(chart2)
@@ -257,5 +257,5 @@ with XGB_tab:
         week_start_date_sj = df["week_start_date"].loc[df.city == "sj"]
 
 
-        st.plotly_chart(plot_time_series(y=y_iq, y_hat=y_hat_iq, week_start_date=week_start_date_iq, title="Iq actuals vs model"))
-        st.plotly_chart(plot_time_series(y=y_sj, y_hat=y_hat_sj, week_start_date=week_start_date_sj, title="Sj actuals vs model"))
+        st.plotly_chart(plot_time_series(y=y_iq, y_hat=y_hat_iq, week_start_date=week_start_date_iq, title="Iquitos actuals vs model"))
+        st.plotly_chart(plot_time_series(y=y_sj, y_hat=y_hat_sj, week_start_date=week_start_date_sj, title="San Juan actuals vs model"))
