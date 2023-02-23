@@ -1,8 +1,4 @@
-#xgboost==1.7.4
-xgboost
-#numpy
-#pandas==1.5.3
-#scipy==1.10.1
+xgboost==1.7.4
 scikit-learn~=1.0
 plotly==5.9.0 
-seaborn
+
