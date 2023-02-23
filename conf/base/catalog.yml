@@ -1,0 +1,57 @@
+# Here you can define all your data sets by using simple YAML syntax.
+#
+# Documentation for this file format can be found in "The Data Catalog"
+# Link: https://kedro.readthedocs.io/en/stable/data/data_catalog.html
+
+
+dengue_features_train:
+ type: pandas.CSVDataSet
+ filepath: data/01_raw/dengue_features_train.csv
+
+dengue_features_test:
+ type: pandas.CSVDataSet
+ filepath: data/01_raw/dengue_features_test.csv
+  
+dengue_labels_train:
+ type: pandas.CSVDataSet
+ filepath: data/01_raw/dengue_labels_train.csv
+
+df:
+ type: pandas.CSVDataSet
+ filepath: data/02_intermediate/df.csv
+ 
+test_features_df:
+ type: pandas.CSVDataSet
+ filepath: data/02_intermediate/test_features_df.csv
+ 
+test_engineered_df:
+ type: pandas.CSVDataSet
+ filepath: data/04_feature/test_engineered_df.csv
+ 
+train_engineered_df:
+ type: pandas.CSVDataSet
+ filepath: data/04_feature/train_engineered_df.csv
+
+iq_timeseries_ridge_reg:
+ type: plotly.JSONDataSet
+ filepath: data/08_reporting/iq_timeseries_ridge_reg.json
+ 
+sj_timeseries_ridge_reg:
+ type: plotly.JSONDataSet
+ filepath: data/08_reporting/sj_timeseries_ridge_reg.json
+ 
+ridge_mae_plot:
+ type: plotly.JSONDataSet
+ filepath: data/08_reporting/ridge_mae_plot.json
+ 
+xgboost_mae_plot:
+ type: plotly.JSONDataSet
+ filepath: data/08_reporting/xgboost_mae_plot.json
+ 
+iq_timeseries_xgboost:
+ type: plotly.JSONDataSet
+ filepath: data/08_reporting/iq_timeseries_xgboost.json
+ 
+sj_timeseries_xgboost:
+ type: plotly.JSONDataSet
+ filepath: data/08_reporting/sj_timeseries_xgboost.json
