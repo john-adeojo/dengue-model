@@ -138,4 +138,4 @@ def xgboost_train (generate_uniform_distribution, plot_joint_distribution, plot_
     iq_timeseries_xgboost = plot_time_series(y=y_iq, y_hat=y_hat_iq, week_start_date=week_start_date_iq, title="Iq actuals vs model")
     sj_timeseries_xgboost = plot_time_series(y=y_sj, y_hat=y_hat_sj, week_start_date=week_start_date_sj, title="Sj actuals vs model")
     
-    return xgboost_mae_plot, iq_timeseries_xgboost, sj_timeseries_xgboost
+    return xgboost_mae_plot, iq_timeseries_xgboost, sj_timeseries_xgboost, xgboost_random_search

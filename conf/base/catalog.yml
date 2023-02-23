@@ -31,6 +31,15 @@ test_engineered_df:
 train_engineered_df:
  type: pandas.CSVDataSet
  filepath: data/04_feature/train_engineered_df.csv
+ 
+xgboost_random_search:
+  type: pickle.PickleDataSet
+  filepath: data/06_models/xgboost_random_search.pickle
+  versioned: true
+ 
+submission:
+ type: pandas.CSVDataSet
+ filepath: data/07_model_output/submission.csv
 
 iq_timeseries_ridge_reg:
  type: plotly.JSONDataSet

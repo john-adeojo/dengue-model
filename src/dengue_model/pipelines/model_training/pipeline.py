@@ -24,7 +24,7 @@ def create_pipeline(**kwargs) -> Pipeline:
             node(
                 func=xgboost_train,
                 inputs=["generate_uniform_distribution", "plot_joint_distribution", "plot_time_series", "model_features", "train_engineered_df", "df"],
-                outputs=["xgboost_mae_plot", "iq_timeseries_xgboost", "sj_timeseries_xgboost"],
+                outputs=["xgboost_mae_plot", "iq_timeseries_xgboost", "sj_timeseries_xgboost", "xgboost_random_search"],
                 name="xgboost_train"
             )
         ]

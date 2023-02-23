@@ -16,14 +16,16 @@ def register_pipelines() -> Dict[str, Pipeline]:
     """
     data_pre_processing_pipeline = dp.create_pipeline()
     feature_engineering_pipeline = fe.create_pipeline()
-    model_predict_xgboost_pipeline = xgboost_predict.create_pipeline()
     model_training_pipeline = training.create_pipeline()
+    model_predict_xgboost_pipeline = xgboost_predict.create_pipeline()
+
     
     return {
     
-    "__default__":data_pre_processing_pipeline + feature_engineering_pipeline + model_training_pipeline,
+    "__default__":data_pre_processing_pipeline + feature_engineering_pipeline + model_training_pipeline + model_predict_xgboost_pipeline,
         "data_pre_processing":data_pre_processing_pipeline + feature_engineering_pipeline,
-        "model_traing_pipeline":model_training_pipeline
+        "model_traing_pipeline":model_training_pipeline,
+        "xgboost_predict":model_predict_xgboost_pipeline
         
     
     }
