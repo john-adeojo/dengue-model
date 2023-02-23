@@ -1,0 +1,6 @@
+xgboost==1.7.4
+kedro-datasets[pandas.CSVDataSet, pandas.ExcelDataSet, pandas.ParquetDataSet]~=1.0.2
+kedro-viz~=5.0                                                                 
+scikit-learn~=1.0
+kedro-datasets[plotly.PlotlyDataSet, plotly.JSONDataSet]~=1.0.2
+plotly==5.9.0  
