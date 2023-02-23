@@ -150,11 +150,9 @@ Ridge_tab, XGB_tab = st.tabs(["Ridge Regressor", "XGBoost Regressor"])
 with Ridge_tab:
     st.header("Ridge Regressor")
     
-    
     st.text("Set the minimum and maximum values for Alpha")
     min_val = st.number_input("Minimum Alpha", value=1)
     max_val = st.number_input("Maximum Alpha", value=10)
-
 
     args={
         "n_splits":5,
@@ -175,17 +173,8 @@ with Ridge_tab:
     
     
     if st.button('Train Ridge Regressor Model'):
-        st.text("Model tarining in progress, this can take up to a minute to complete")
+        st.text("Model training in progress, this can take up to a minute to complete")
         ridge_random_search = train_model.fit(X, y)
-
-        # Plot results: Ridge Regressor 
-        data = ridge_random_search.cv_results_
-        var1 = "param_alpha"
-        var2 = "mean_test_score"
-        title= "Ridge Regressor: Alpha vs MAE"
-        #plot_joint_distribution(data, var1, var2, title)
-        st.plotly_chart(plot_joint_distribution(data, var1, var2, title))
-
 
         # Visualise Model: Ridge Regressor
         y_hat_iq = ridge_random_search.predict(X.loc[X.city_iq==1])
@@ -197,26 +186,29 @@ with Ridge_tab:
         week_start_date_iq = df["week_start_date"].loc[df.city == "iq"]
         week_start_date_sj = df["week_start_date"].loc[df.city == "sj"]
 
-
         chart1 = plot_time_series(y=y_iq, y_hat=y_hat_iq, week_start_date=week_start_date_iq, title="Iquitos actuals vs model")
         chart2 = plot_time_series(y=y_sj, y_hat=y_hat_sj, week_start_date=week_start_date_sj, title="San Juan actuals vs model")
         
         st.plotly_chart(chart1)
         st.plotly_chart(chart2)
 
-
-
+        # Plot results: Ridge Regressor 
+        data = ridge_random_search.cv_results_
+        var1 = "param_alpha"
+        var2 = "mean_test_score"
+        title= "Ridge Regressor: Alpha vs MAE"
+        #plot_joint_distribution(data, var1, var2, title)
+        st.plotly_chart(plot_joint_distribution(data, var1, var2, title))
+        
+        
 # Model Training: XGBOOST Regressor
 with XGB_tab:
     
     st.header("XGBoost Regressor")
     
-    
     st.text("Set the minimum and maximum values for reg_lambda")
     min_val = st.number_input("Minimum reg_lambda", value=0)
     max_val = st.number_input("Maximum reg_lambda", value=10)
-    
-    
     
     random_search_kwargs = {
         "estimator": XGBRegressor(n_jobs=4),
@@ -226,25 +218,11 @@ with XGB_tab:
         "cv": TimeSeriesSplit(**args)
     }
     
-    
     train_model = RandomizedSearchCV(**random_search_kwargs)
 
     if st.button('Train XGBoost Regressor Model'):
-        st.text("The model can take up to 5 minutes to train, please be patient")
+        st.text("Model training in progress, this can take up to a minute to 5 minutes to complete")
         xgboost_random_search = train_model.fit(X, y)
-#         progress_text = "Model Training in progress. Please wait."
-#         my_bar = st.progress(0, text=progress_text)
-
-#         for percent_complete in range(100):
-#             xgboost_random_search = train_model.fit(X, y)
-#             my_bar.progress(percent_complete + 1, text=progress_text)
-
-        # Plot Results: XGBoost Regressor
-        data = xgboost_random_search.cv_results_
-        var1 = "param_reg_lambda"
-        var2 = "mean_test_score"
-        title= "XGBRegressor: Reg_Lamba vs MAE"
-        st.plotly_chart(plot_joint_distribution(data, var1, var2, title))
 
         # Visualise Model: XGBoost Regressor
         y_hat_iq = xgboost_random_search.predict(X.loc[X.city_iq==1])
@@ -256,6 +234,12 @@ with XGB_tab:
         week_start_date_iq = df["week_start_date"].loc[df.city == "iq"]
         week_start_date_sj = df["week_start_date"].loc[df.city == "sj"]
 
-
         st.plotly_chart(plot_time_series(y=y_iq, y_hat=y_hat_iq, week_start_date=week_start_date_iq, title="Iquitos actuals vs model"))
         st.plotly_chart(plot_time_series(y=y_sj, y_hat=y_hat_sj, week_start_date=week_start_date_sj, title="San Juan actuals vs model"))
+        
+        # Plot Results: XGBoost Regressor
+        data = xgboost_random_search.cv_results_
+        var1 = "param_reg_lambda"
+        var2 = "mean_test_score"
+        title= "XGBRegressor: Reg_Lamba vs MAE"
+        st.plotly_chart(plot_joint_distribution(data, var1, var2, title))
