@@ -1,7 +1,8 @@
-# dengue-model
+# Dengue Model
 
 ## Jupyter Notebook
 There is a kedro version of the project and a Jupyter notebook. 
+
 [Jupyter notebook link]( https://mybinder.org/v2/gh/john-adeojo/dengue-model/65cfc857860866f999163c07b172bc35cea6e0f3?urlpath=lab%2Ftree%2Fnotebooks%2FDengue%20Modelling%20Notebook.ipynb)
 
 ## Running Kedro Project
