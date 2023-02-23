@@ -8,7 +8,7 @@ There is a kedro version of the project and a Jupyter notebook.
 ## Running Kedro Project
 Follow these steps to run the project in Kedro. Kedro gives the ability to view the model in modular form, interact and visualise the model pipelines. 
 
-### pre-requisites 
+### Pre-requisites 
 you will need to install [Anaconda](https://www.anaconda.com/) if you don't already have it on your machine
 
 ### Step 1:  Open anaconda powershell and run the following commands sequentially:
